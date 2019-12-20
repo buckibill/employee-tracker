@@ -27,22 +27,22 @@ CREATE TABLE role (
 );
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("William", "Smith", 2, 2);
+VALUES ("Burrow", "Joe", 2, 2);
 
 INSERT INTO employee (first_name, last_name, role_id)
-VALUES ("Michael", "Scott", 1);
+VALUES ("Ryan", "Day", 1);
 
 INSERT INTO role (title, salary, department_id)
-VALUES ("Manager", 200000, 1);
+VALUES ("Head Coach", 4000000, 1);
 
 INSERT INTO role (title, salary, department_id)
-VALUES ("Mechanical Engineer 2", 100000, 2);
+VALUES ("Quarterback Coach", 1000000, 2);
 
 INSERT INTO department (name)
 VALUES ("Manager");
 
 INSERT INTO department (name)
-VALUES ("Mechanical");
+VALUES ("Production");
 
 
 SELECT 

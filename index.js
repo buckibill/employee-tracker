@@ -28,13 +28,13 @@ function runSearch() {
             type: "list",
             message: "What would you like to do?",
             choices: [
-                "View All Employees", // select * from Employee
+                "View All Employees",
                 "View All Roles",
                 "View All Departments",
-                "Add Employee", // insert 
+                "Add Employee",
                 "Add Role",
                 "Add Department",
-                "Update Employee Roles" // update
+                "Update Employee Roles"
             ]
         })
         .then(function (answer) {
@@ -82,55 +82,22 @@ function employeePrint() {
     query += ' FROM employee e INNER JOIN role on e.role_id = role.id INNER JOIN department on role.department_id = department.id LEFT JOIN employee m ON e.manager_id = m.id;';
     connection.query(query, function (err, res) {
         console.table(res)
-    })
-
+    });
 }
 
-
-function addEmployee() {
-    let questions = [
-        {
-            name: first_name,
-            type: input,
-            message: "what is the first name of the employee?"
-
-        }, 
-        {
-            name: last_name,
-            type: input,
-            message: "what is the last name of the employee?"
-
-        }, 
-        {
-            name: role_id,
-            type: input,
-            message: "what is the role id of the employee?"
-
-        }, 
-
-        {
-            name: manager_id,
-            type: input,
-            message: "what is the manager id of the employee?"
-
-        }
-    ]
-    inquirer.prompt(questions).then(answers){
-
-        
-        connection.query("INSERT INTO employee(first_name, last_name, role_id, manager_id)
-        VALUES(?, ?, ?, ?), [answers.first_name, answers.last_name, answers.role_id, answers.manager_id], 
-        function(err){
-            if (err) throw err;
-            console.log("added employee");
-        })
-    
-    }
-
-    INSERT INTO employee(first_name, last_name, role_id, manager_id)
-    VALUES("William", "Smith", 2, 2);
+function rolePrint() {
+    var query = 'SELECT * FROM role;';
+    connection.query(query, function (err, res) {
+        console.table(res)
+    });
 }
 
+function departmentPrint() {
+    var query = 'SELECT * FROM department;';
+    connection.query(query, function (err, res) {
+        console.table(res)
+    });
+}
 
 
 
