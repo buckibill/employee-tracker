@@ -27,43 +27,19 @@ CREATE TABLE role (
 );
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Burrow", "Joe", 2, 2);
+VALUES ("J.K.", "Dobbins", 2, 2);
 
 INSERT INTO employee (first_name, last_name, role_id)
-VALUES ("Ryan", "Day", 1);
+VALUES ("Justin", "Fields", 1);
 
 INSERT INTO role (title, salary, department_id)
-VALUES ("Head Coach", 4000000, 1);
+VALUES ("Manager", 150000, 1);
 
 INSERT INTO role (title, salary, department_id)
-VALUES ("Quarterback Coach", 1000000, 2);
+VALUES ("Production Supervisor", 110000, 2);
 
 INSERT INTO department (name)
 VALUES ("Manager");
 
 INSERT INTO department (name)
 VALUES ("Production");
-
-
-SELECT 
-e.id, 
-e.first_name, 
-e.last_name,
-role.title,
-department.name AS department,
-role.salary,
-CONCAT( m.first_name, " ", m.last_name ) AS manager
-FROM employee e
-INNER JOIN role
-on e.role_id = role.id
-INNER JOIN department
-on role.department_id = department.id
-LEFT JOIN employee m ON
-e.manager_id = m.id;
-
-
-
- 
-SELECT * FROM employee;
-SELECT * FROM role;
-SELECT * FROM department;
